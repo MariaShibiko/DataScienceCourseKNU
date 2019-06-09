@@ -144,4 +144,45 @@ observationA observationB
 10.Для вбудованого набору даних InsectSprays знайти середнє count для
 кожного spray.
  ```{r}
- 
+> g <- split(InsectSprays$count, InsectSprays$spray)
+##split the "count" values into six groups based on types of sprays
+> g
+$A
+ [1] 10  7 20 14 14 12 10 23 17 20 14 13
+
+$B
+ [1] 11 17 21 11 16 14 17 17 19 21  7 13
+
+$C
+ [1] 0 1 7 2 3 1 2 1 3 0 1 4
+
+$D
+ [1]  3  5 12  6  4  3  5  5  5  5  2  4
+
+$E
+ [1] 3 5 3 5 3 6 1 1 3 2 6 4
+
+$F
+ [1] 11  9 15 22 15 16 13 10 26 26 24 13
+
+> sapply(g, mean)
+        A         B         C         D         E         F 
+14.500000 15.333333  2.083333  4.916667  3.500000 16.666667 
+> lapply(g, mean)
+$A
+[1] 14.5
+
+$B
+[1] 15.33333
+
+$C
+[1] 2.083333
+
+$D
+[1] 4.916667
+
+$E
+[1] 3.5
+
+$F
+[1] 16.66667
